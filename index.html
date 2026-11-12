@@ -21,7 +21,7 @@
 <meta name="twitter:description" content="DeOiling recovers fats, oils and grease (FOG) from wastewater using DeSorb, a patented, reusable sorbent validated by the University of Sydney.">
 <meta name="twitter:image" content="https://www.deoiling.com.au/share-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"DeOiling","legalName":"DeOiling Pty Ltd","url":"https://www.deoiling.com.au/","logo":"https://www.deoiling.com.au/logo.png","email":"info@deoiling.com.au","description":"DeOiling recovers fats, oils and grease (FOG) from wastewater using DeSorb, a patented, reusable sorbent validated by the University of Sydney."}
+{"@context":"https://schema.org","@type":"Organization","name":"DeOiling","legalName":"DeOiling Pty Ltd","url":"https://www.deoiling.com.au/","logo":"https://www.deoiling.com.au/logo.png","email":"info@deoiling.com.au","description":"DeOiling recovers fats, oils and grease (FOG) from wastewater using DeSorb, a patented, reusable sorbent validated by the University of Sydney.","sameAs":["https://www.linkedin.com/company/deoiling-pty-ltd/"]}
 </script>
 <link rel="icon" type="image/png" href="favicon.png?v=2">
 <link rel="shortcut icon" href="favicon.ico?v=2">
@@ -82,6 +82,18 @@ ul.plain li::before{content:"";position:absolute;left:4px;top:19px;width:10px;he
 .contact h2{color:var(--white)}
 .contact p{color:#ddd;max-width:34em}
 .contact a.btn{margin-top:28px}
+.contact form{margin-top:28px;max-width:720px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fgrid label{display:flex;flex-direction:column;gap:6px;font-size:15px;color:#fff}
+.fgrid .full{grid-column:1/-1}
+.fgrid input,.fgrid select,.fgrid textarea{font:inherit;font-size:16px;padding:12px;border:2px solid #fff;background:#fff;color:var(--char);border-radius:0;width:100%}
+.fgrid input:focus-visible,.fgrid select:focus-visible,.fgrid textarea:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.contact button.btn{cursor:pointer;margin-top:22px;font-family:inherit}
+.contact button.btn:disabled{opacity:.6;cursor:wait}
+.contact .fine{font-size:14px;color:#cfcfcf;margin-top:14px}
+.contact a{color:#ffb27a}
+#form-status{margin-top:14px;font-weight:700;color:#fff;min-height:1.4em}
+@media(max-width:640px){.fgrid{grid-template-columns:1fr}}
 footer{padding:28px 0;font-size:14px;color:var(--mid);border-top:1px solid #e3e3e3}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 </style>
@@ -224,9 +236,36 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
 <section id="contact" class="contact">
   <div class="wrap">
-    <h2>Water authority, grease trap operator or potential partner?</h2>
+    <h2>Water authority, grease trap operator, Gas &amp; Oil company or potential partner?</h2>
     <p>Tell us about your site or your interest in licensing and manufacturing, and we will get back to you.</p>
-    <a class="btn primary" href="mailto:info@deoiling.com.au?subject=Enquiry%20from%20deoiling.com.au">Email DeOiling</a>
+    <form id="enquiry" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="dde09349-bb38-4f19-869d-bf648408464b">
+      <input type="hidden" name="subject" value="New enquiry from deoiling.com.au">
+      <input type="hidden" name="from_name" value="DeOiling website">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+      <div class="fgrid">
+        <label>Name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Work email<input type="email" name="email" required autocomplete="email"></label>
+        <label>Organisation<input type="text" name="organisation" autocomplete="organization"></label>
+        <label>I am a
+          <select name="enquiry_type" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Water authority</option>
+            <option>Grease trap operator or waste contractor</option>
+            <option>Gas &amp; Oil company</option>
+            <option>Food and beverage producer</option>
+            <option>Potential partner</option>
+            <option>Investor</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label class="full">Message<textarea name="message" rows="5" required></textarea></label>
+      </div>
+      <button class="btn primary" type="submit">Send enquiry</button>
+      <p class="fine">We only use your details to reply to your enquiry.</p>
+      <p id="form-status" role="status" aria-live="polite"></p>
+      <p class="fine">Or email <a href="mailto:info@deoiling.com.au">info@deoiling.com.au</a></p>
+    </form>
   </div>
 </section>
 </main>
@@ -234,9 +273,32 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 <footer>
   <div class="wrap">
     <span>&copy; 2026 DeOiling Pty Ltd</span>
-    <span>www.deoiling.com.au</span>
+    <span><a href="https://www.linkedin.com/company/deoiling-pty-ltd/" rel="noopener" target="_blank">LinkedIn</a> &middot; www.deoiling.com.au</span>
   </div>
 </footer>
+<script>
+(function(){
+  var form=document.getElementById('enquiry');
+  if(!form) return;
+  var status=document.getElementById('form-status');
+  var btn=form.querySelector('button[type="submit"]');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    status.textContent='';
+    btn.disabled=true;
+    var label=btn.textContent;
+    btn.textContent='Sending';
+    fetch(form.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d.success){form.reset();status.textContent='Thanks. We\u2019ll be in touch soon.';}
+        else{status.textContent='Something went wrong. Please email info@deoiling.com.au instead.';}
+      })
+      .catch(function(){status.textContent='Something went wrong. Please email info@deoiling.com.au instead.';})
+      .then(function(){btn.disabled=false;btn.textContent=label;});
+  });
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9d0a21eaed8e4671afdc047108b4afb9"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
