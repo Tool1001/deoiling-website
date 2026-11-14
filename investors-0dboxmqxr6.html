@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>The Cleantech Ecosystem</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--mute:#5b6677;--line:#e2e6ec;--root:#2b3442;
+--moat:#c2358f;--d1:#5a8f1f;--d2:#d0701c;--d3:#6f56d6;--d4:#13897d;--eb:#c79a00;--ea:#1f7fb8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161c;--card:#1a2029;--ink:#eef1f5;--mute:#9aa6b6;--line:#2a3340;--root:#3a4658;
+--moat:#ee6ab9;--d1:#9fd24f;--d2:#f09b52;--d3:#a38dff;--d4:#4fd0c2;--eb:#f2c94c;--ea:#5cb8ee}}
+:root[data-theme="dark"]{--bg:#12161c;--card:#1a2029;--ink:#eef1f5;--mute:#9aa6b6;--line:#2a3340;--root:#3a4658;
+--moat:#ee6ab9;--d1:#9fd24f;--d2:#f09b52;--d3:#a38dff;--d4:#4fd0c2;--eb:#f2c94c;--ea:#5cb8ee}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "Inter","Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 20px 56px}
+.root{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--root);color:#fff;font-size:26px;font-weight:700;letter-spacing:.2px;padding:16px 36px;border-radius:14px;text-align:center}
+.stem{width:2px;height:28px;background:var(--line);margin:0 auto}
+.ent{border:2px solid var(--c);border-radius:18px;padding:20px;background:var(--card);margin-bottom:18px}
+.ent>h2{margin:0 0 18px;display:inline-block;background:var(--c);color:#fff;font-size:18px;padding:9px 18px;border-radius:10px}
+html:not([data-x]) .ent.a>h2,.ent.a>h2{color:#fff}
+.ent.b>h2{color:#2a2100}
+.sec{margin-top:18px}
+.sh{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:17px;font-weight:700;color:var(--c)}
+.sh:before{content:"";width:6px;height:22px;border-radius:3px;background:var(--c)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.card{background:var(--bg);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:12px;padding:14px 16px}
+.card h4{margin:0 0 10px;font-size:15px;color:var(--c)}
+.row{padding:7px 0;border-top:1px solid var(--line);font-size:14px}
+.row:first-of-type{border-top:0}
+.row b{display:block;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--mute);margin-bottom:1px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:8px 12px;font-size:14px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.col h4{margin:0 0 8px;font-size:15px;color:var(--c)}
+.col .chip{margin-bottom:8px;display:block}
+.col.big h4{font-size:21px}
+.col.big .chip{font-size:16px;font-weight:600}
+@media print{body{background:#fff}.wrap{padding:0}.card,.ent{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="root">The Cleantech Ecosystem</div>
+<div class="stem"></div>
+<div id="app"></div>
+</div>
+<script>
+var E=[
+{n:"Entity A:  DeOiling Pty Ltd (Hardware & Media) BSands & GRobinson",k:"a",c:"--ea",
+moat:{t:"The Moat: Global Patent Portfolio",c:"--moat",cols:[
+["Granted Domestic Patents (Australia)",["<span style='white-space:nowrap'>AU 2017231097, AU 2017293658,</span><br><span style='white-space:nowrap'>AU 2021100855, AU 2021100854</span>"]],
+["Granted International Patents",["United States: US 11,225,041 B2 & US 10,882,758 B2","Canada: CA 3029433","<s style='opacity:.7'>China: CN ZL201780054629.1</s>"]],
+["Post-Funding IP Expansion",["Post-funding initiative: Multi-vessel horizontal OFT arrays","Post-funding initiative: Mobile containerized skid architecture","Post-funding initiative: Truck-mounted extraction system"]],
+["Trade Secrets",["DeSorb: Trade secret (not disclosed in patent filings)","Post-funding initiative: In-situ advanced oxidation integration (protection route: patent or trade secret)"]]]},
+divs:[
+{t:"Division 1: DeSorb — FOG Recovery",c:"--d1",s:[
+["1A: Municipal & Network FOG (Utility)","Pump Stations, WWTPs (e.g., TasWater, Sydney Water)","Degraded FOG / Thermal fuel","Microgeneration, OPEX reduction, Carbon credits"],
+["1B: Source-Captured FOG (Premium)","QSRs, Food Mfg, Hotels","Low-moisture brown grease / Used Cooking Oil","SAF/HVO biofuels, SLL ESG Data, Carbon credits"]]},
+{t:"Division 2: DeSorb — Hydrocarbon Recovery",c:"--d2",s:[
+["2A: Upstream Oil & Gas","Frac Flowback, Produced Water","Clarified water, recovered condensate","Opex slashing for drillers, Skid leasing, crude resale, Carbon credits"],
+["2B: Downstream & Automotive","Petrol stations, Wash-bays, Marine","Waste oil, Compliant wastewater","Trade waste compliance, Consumable media sales, Carbon credits"]]},
+{t:"Division 3: DeSorb — Odour Control (Media)",c:"--d3",s:[
+["3A: Municipal Ponds (Passive Socks)","Open-air WWTP lagoons","Neutralized H2S and VOCs","Zero-CAPEX recurring OPEX contracts, Carbon credits"],
+["3B: Industrial Emissions","Manufacturing, Abattoirs","Neutralized industrial emissions","Bulk media sales, maintenance contracts, Carbon credits"]]},
+{t:"Division 4: Advanced Oxidation (Air & Carbon Renewal)",c:"--d4",s:[
+["4A: Municipal Sewer & Water Networks","Sewer networks, Water treatment plants","Regenerated activated carbon (in-situ)","Eliminating crane/logistics OPEX, Hardware sales"],
+["4B: Commercial Hospitality Air","Kitchen exhausts, HVAC intakes","Oxidized/Neutralized food VOCs & grease aerosols","Compliance certificates, Hardware sales, SaaS monitoring"]]}]},
+{n:"Entity B: RoSan (GRobinson & BSands) A full-stack Industrial PLC, IoT, and Telemetry platform that bridges physical machinery with cloud and/or on-premise intelligence across the automation pyramid (Digital Twin)",k:"b",c:"--eb",
+cols:[["Core Functions",["Real-time OFT monitoring: live weights and measures","Automated maintenance alerts"]],
+["ESG Value",["Baseline auditing for Carbon Credits","Data for Hospitality Sustainability-Linked Loans (SLLs)"]],
+["Commercial Pathway",["Strategic partnership / Licensing / Future acquisition"]]]}];
+function cols(a){return '<div class="cols">'+a.map(function(x){return '<div class="col'+(x[0]==='Trade Secrets'?' big':'')+'"><h4>'+x[0]+'</h4>'+x[1].map(function(i){return '<span class="chip">'+i+'</span>'}).join('')+'</div>'}).join('')+'</div>'}
+var h='';
+E.forEach(function(e){
+h+='<div class="ent '+e.k+'" style="--c:var('+e.c+')"><h2>'+e.n+'</h2>';
+if(e.moat){h+='<div class="sec" style="--c:var('+e.moat.c+')"><div class="sh">'+e.moat.t+'</div>'+cols(e.moat.cols)+'</div>';
+e.divs.forEach(function(d){
+h+='<div class="sec" style="--c:var('+d.c+')"><div class="sh">'+d.t+'</div><div class="grid">';
+d.s.forEach(function(s){h+='<div class="card"><h4>'+s[0]+'</h4><div class="row"><b>Source</b>'+s[1]+'</div><div class="row"><b>Yield</b>'+s[2]+'</div><div class="row"><b>Monetization</b>'+s[3]+'</div></div>'});
+h+='</div></div>'})}
+else h+=cols(e.cols);
+h+='</div>'});
+document.getElementById('app').innerHTML=h;
+</script>
+</body>
+</html>
