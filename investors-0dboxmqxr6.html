@@ -24,6 +24,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "Inter","Sego
 .ent>h2{margin:0 0 18px;display:inline-block;background:var(--c);color:#fff;font-size:18px;padding:9px 18px;border-radius:10px}
 html:not([data-x]) .ent.a>h2,.ent.a>h2{color:#fff}
 .ent.b>h2{color:#2a2100}
+.ent>.sub{margin:-6px 0 18px;max-width:80ch;color:var(--mute);font-size:15px}
 .sec{margin-top:18px}
 .sh{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:17px;font-weight:700;color:var(--c)}
 .sh:before{content:"";width:6px;height:22px;border-radius:3px;background:var(--c)}
@@ -51,7 +52,7 @@ html:not([data-x]) .ent.a>h2,.ent.a>h2{color:#fff}
 </div>
 <script>
 var E=[
-{n:"Entity A:  DeOiling Pty Ltd (Hardware & Media) BSands & GRobinson",k:"a",c:"--ea",
+{n:"Entity A: DeOiling Pty Ltd (Hardware & Media) BSands & GRobinson",k:"a",c:"--ea",
 moat:{t:"The Moat: Global Patent Portfolio",c:"--moat",cols:[
 ["Granted Domestic Patents (Australia)",["<span style='white-space:nowrap'>AU 2017231097, AU 2017293658,</span><br><span style='white-space:nowrap'>AU 2021100855, AU 2021100854</span>"]],
 ["Granted International Patents",["United States: US 11,225,041 B2 & US 10,882,758 B2","Canada: CA 3029433","<s style='opacity:.7'>China: CN ZL201780054629.1</s>"]],
@@ -70,14 +71,14 @@ divs:[
 {t:"Division 4: Advanced Oxidation (Air & Carbon Renewal)",c:"--d4",s:[
 ["4A: Municipal Sewer & Water Networks","Sewer networks, Water treatment plants","Regenerated activated carbon (in-situ)","Eliminating crane/logistics OPEX, Hardware sales"],
 ["4B: Commercial Hospitality Air","Kitchen exhausts, HVAC intakes","Oxidized/Neutralized food VOCs & grease aerosols","Compliance certificates, Hardware sales, SaaS monitoring"]]}]},
-{n:"Entity B: RoSan (GRobinson & BSands) A full-stack Industrial PLC, IoT, and Telemetry platform that bridges physical machinery with cloud and/or on-premise intelligence across the automation pyramid (Digital Twin)",k:"b",c:"--eb",
+{n:"Entity B: RoSan (GRobinson & BSands)",d:"A full-stack Industrial PLC, IoT, and Telemetry platform that bridges physical machinery with cloud and/or on-premise intelligence across the automation pyramid (Digital Twin)",k:"b",c:"--eb",
 cols:[["Core Functions",["Real-time OFT monitoring: live weights and measures","Automated maintenance alerts"]],
 ["ESG Value",["Baseline auditing for Carbon Credits","Data for Hospitality Sustainability-Linked Loans (SLLs)"]],
 ["Commercial Pathway",["Strategic partnership / Licensing / Future acquisition"]]]}];
 function cols(a){return '<div class="cols">'+a.map(function(x){return '<div class="col'+(x[0]==='Trade Secrets'?' big':'')+'"><h4>'+x[0]+'</h4>'+x[1].map(function(i){return '<span class="chip">'+i+'</span>'}).join('')+'</div>'}).join('')+'</div>'}
 var h='';
 E.forEach(function(e){
-h+='<div class="ent '+e.k+'" style="--c:var('+e.c+')"><h2>'+e.n+'</h2>';
+h+='<div class="ent '+e.k+'" style="--c:var('+e.c+')"><h2>'+e.n+'</h2>'+(e.d?'<p class="sub">'+e.d+'</p>':'');
 if(e.moat){h+='<div class="sec" style="--c:var('+e.moat.c+')"><div class="sh">'+e.moat.t+'</div>'+cols(e.moat.cols)+'</div>';
 e.divs.forEach(function(d){
 h+='<div class="sec" style="--c:var('+d.c+')"><div class="sh">'+d.t+'</div><div class="grid">';
