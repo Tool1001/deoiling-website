@@ -33,6 +33,8 @@ html:not([data-x]) .ent.a>h2,.ent.a>h2{color:#fff}
 .card h4{margin:0 0 10px;font-size:15px;color:var(--c)}
 .row{padding:7px 0;border-top:1px solid var(--line);font-size:14px}
 .row:first-of-type{border-top:0}
+.row.hl{margin-top:8px;padding:10px 12px;border:1px solid var(--c);border-left-width:5px;border-radius:8px;background:color-mix(in srgb,var(--c) 12%,transparent);font-weight:600}
+.row.hl b{color:var(--c)}
 .row b{display:block;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--mute);margin-bottom:1px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:8px 12px;font-size:14px}
@@ -60,16 +62,16 @@ moat:{t:"The Moat: Global Patent Portfolio",c:"--moat",cols:[
 ["Trade Secrets",["DeSorb: Trade secret (not disclosed in patent filings)","Post-funding initiative: In-situ advanced oxidation integration (protection route: patent or trade secret)"]]]},
 divs:[
 {t:"Division 1: DeSorb — FOG Recovery",c:"--d1",s:[
-["1A: Municipal & Network FOG (Utility)","Pump Stations, WWTPs (e.g., TasWater, Sydney Water)","Degraded FOG / Thermal fuel","SAF/HVO biofuels, Biodigestion feedstock sales, ESG Data, Microgeneration, OPEX reduction, Carbon credits"],
-["1B: Source-Captured FOG (Premium)","QSRs, Food Mfg, Hotels","Low-moisture brown grease / Used Cooking Oil","SAF/HVO biofuels, SLL ESG Data, Carbon credits"]]},
+["1A: Municipal & Network FOG (Utility)","Pump Stations, WWTPs (e.g., TasWater, Sydney Water)","Degraded FOG / Thermal fuel","SAF/HVO biofuels, Biodigestion feedstock sales, ESG Data, Microgeneration, OPEX reduction, ACCUs / Carbon credits","ACCUs: claimable for every tonne of FOG removed"],
+["1B: Source-Captured FOG (Premium)","QSRs, Food Mfg, Hotels","Low-moisture brown grease / Used Cooking Oil","SAF/HVO biofuels, SLL ESG Data, ACCUs / Carbon credits","ACCUs: claimable for every tonne of FOG removed"]]},
 {t:"Division 2: DeSorb — Hydrocarbon Recovery",c:"--d2",s:[
-["2A: Upstream Oil & Gas","Frac Flowback, Produced Water","Clarified water, recovered condensate","Opex slashing for drillers, Skid leasing, crude resale, Carbon credits"],
-["2B: Downstream & Automotive","Petrol stations, Wash-bays, Marine","Waste oil, Compliant wastewater","Trade waste compliance, Consumable media sales, Carbon credits"]]},
+["2A: Upstream Oil & Gas","Frac Flowback, Produced Water","Clarified water, recovered condensate","Opex slashing for drillers, Skid leasing, crude resale, ACCUs / Carbon credits","ACCUs: claimable per tonne of hydrocarbon recovered, value per tonne to be confirmed"],
+["2B: Downstream & Automotive","Petrol stations, Wash-bays, Marine","Waste oil, Compliant wastewater","Trade waste compliance, Consumable media sales, ACCUs / Carbon credits","ACCUs: claimable per tonne of hydrocarbon recovered, value per tonne to be confirmed"]]},
 {t:"Division 3: DeSorb — Odour Control (Media)",c:"--d3",s:[
-["3A: Municipal Ponds (Passive Socks)","Open-air WWTP lagoons","Neutralized H2S and VOCs","Zero-CAPEX recurring OPEX contracts, Carbon credits"],
-["3B: Industrial Emissions","Manufacturing, Abattoirs","Neutralized industrial emissions","Bulk media sales, maintenance contracts, Carbon credits"]]},
+["3A: Municipal Ponds (Passive Socks)","Open-air WWTP lagoons","Neutralized H2S and VOCs","Zero-CAPEX recurring OPEX contracts, ACCUs / Carbon credits","ACCUs: each tonne of methane avoided counts as 28 tonnes of CO₂e (illustrative: 100 tonnes of methane is worth about $104k AUD)"],
+["3B: Industrial Emissions","Manufacturing, Abattoirs","Neutralized industrial emissions","Bulk media sales, maintenance contracts, ACCUs / Carbon credits","ACCUs: each tonne of methane avoided counts as 28 tonnes of CO₂e (illustrative: 100 tonnes of methane is worth about $104k AUD)"]]},
 {t:"Division 4: Advanced Oxidation (Air & Carbon Renewal)",c:"--d4",s:[
-["4A: Municipal Sewer & Water Networks","Sewer networks, Water treatment plants","Regenerated activated carbon (in-situ)","Eliminating crane/logistics OPEX, Hardware sales"],
+["4A: Municipal Sewer & Water Networks","Sewer networks, Water treatment plants","Regenerated activated carbon (in-situ), diverted from landfill","Eliminating crane/logistics OPEX, Hardware sales, ACCUs / Carbon credits","ACCUs: indicative value of $38k to $57k AUD per 100 tonnes of activated carbon diverted from landfill (at current spot prices)"],
 ["4B: Commercial Hospitality Air","Kitchen exhausts, HVAC intakes","Oxidized/Neutralized food VOCs & grease aerosols","Compliance certificates, Hardware sales, SaaS monitoring"]]}]},
 {n:"Entity B: Confidential Entity (GRobinson & BSands)",d:"A full-stack Industrial PLC, IoT, and Telemetry platform that bridges physical machinery with cloud and/or on-premise intelligence across the automation pyramid (Digital Twin)",k:"b",c:"--eb",
 cols:[["Core Functions",["Real-time control and monitoring of the DeOiling OFT platform","Live weights and measures","Commercial & Industrial IoT sensor monitoring","Industrial air quality, gas and environmental monitoring","Automated maintenance alerts"]],
@@ -82,7 +84,7 @@ h+='<div class="ent '+e.k+'" style="--c:var('+e.c+')"><h2>'+e.n+'</h2>'+(e.d?'<p
 if(e.moat){h+='<div class="sec" style="--c:var('+e.moat.c+')"><div class="sh">'+e.moat.t+'</div>'+cols(e.moat.cols)+'</div>';
 e.divs.forEach(function(d){
 h+='<div class="sec" style="--c:var('+d.c+')"><div class="sh">'+d.t+'</div><div class="grid">';
-d.s.forEach(function(s){h+='<div class="card"><h4>'+s[0]+'</h4><div class="row"><b>Source</b>'+s[1]+'</div><div class="row"><b>Yield</b>'+s[2]+'</div><div class="row"><b>Monetization</b>'+s[3]+'</div></div>'});
+d.s.forEach(function(s){h+='<div class="card"><h4>'+s[0]+'</h4><div class="row"><b>Source</b>'+s[1]+'</div><div class="row"><b>Yield</b>'+s[2]+'</div><div class="row"><b>Monetization</b>'+s[3]+'</div>'+(s[4]?'<div class="row hl"><b>Carbon Credit Opportunity</b>'+s[4]+'</div>':'')+'</div>'});
 h+='</div></div>'})}
 else h+=cols(e.cols);
 h+='</div>'});
